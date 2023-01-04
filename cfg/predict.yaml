@@ -1,0 +1,7 @@
+model: pnet
+pretrain: xxx
+#val_dataset: MCL-JCV
+#val_dataset: UVG
+val_dataset: HEVC
+class: D
+enable_amp: True

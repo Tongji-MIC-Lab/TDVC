@@ -1,0 +1,17 @@
+### Training ###
+model: pnet
+experiment_name: example
+train_dataset_path: /dataset/vimeo_septuplet/sequences
+load_model:
+train_lambda: 2048
+batch_size: 38
+num_workers: 18
+num_iter: 2000000
+lr: 0.0001
+advanced_coder: True
+timer: False
+amp: True
+
+### Validation ###
+GOP_size: 12
+val_dataset_path: /dataset/HEVC2/

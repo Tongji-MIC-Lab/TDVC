@@ -1,0 +1,12 @@
+### Training ###
+batch_size: 8
+workers: 12
+compress: False
+qp: 27
+resume: xxx
+output_dir: exp/uc_test
+compress_path: xxx
+dataset_path: /dataset/video_cls/UCF101/
+clip: 8
+amp: False
+lr: 0.00001

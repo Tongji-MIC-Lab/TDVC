@@ -1,0 +1,13 @@
+opencv-python
+pypng
+matplotlib
+rich
+natsort
+scikit-image
+albumentations
+compressai
+tensorboardX
+timm
+imgaug
+torch==1.8.0
+mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.8.0/index.html

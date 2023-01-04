@@ -1,0 +1,10 @@
+### Training ###
+batch_size: 8
+workers: 12
+compress: True
+qp: 37
+resume: xxx
+output_dir: xxx
+clip: 8
+amp: True
+lr: 0.001
