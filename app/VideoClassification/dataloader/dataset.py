@@ -72,7 +72,7 @@ class VideoLoader(object):
                 bpp = f.read().splitlines()
 
             ref_image_path = video_path / self.image_name_formatter(i + 1)
-            raw_image_path = Path(str(ref_image_path).replace(ref_image_path.parts[-4], 'UCF101-yuv_img'))
+            raw_image_path = Path(str(ref_image_path).replace(ref_image_path.parts[-4], 'UCF101_yuv_img'))
 
             if ref_image_path.exists():
                 ref_video.append(self.image_loader(ref_image_path))

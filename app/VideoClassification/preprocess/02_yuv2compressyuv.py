@@ -4,13 +4,13 @@ from get_data import get_data
 
 QP = 22
 w, h = 320, 240
-yuv_path = '/dataset/video_cls/UCF101/UCF-101_yuv'
-out_path = '/dataset/video_cls/UCF101/UCF-101_fast_yuv_compress_' + str(QP)
+yuv_path = 'UCF101_yuv'
+out_path = 'UCF-101_yuv_compress_' + str(QP)
 os.makedirs(out_path, exist_ok=True)
 
 keyint = 12
 
-video_ = get_data('/dataset/video_cls/UCF101/UCF101-json/ucf101_01.json')
+video_ = get_data('UCF101-json/ucf101_01.json')
 # video_ = ['v_Biking_g23_c01']
 for item in os.listdir(yuv_path):
     video_object_path = os.path.join(out_path, item)

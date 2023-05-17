@@ -1,6 +1,6 @@
 import os
 
-filepath = '/mnt/dataset/videocls/UCF101/UCF-101'
+filepath = 'UCF101'
 objectpath = filepath + '_yuv'
 
 os.makedirs(objectpath, exist_ok=True)

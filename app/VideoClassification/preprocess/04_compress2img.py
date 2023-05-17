@@ -1,16 +1,17 @@
 import os
+import re
 import numpy as np
 from get_data import get_data
 
 QP = 22
 
-yuv_path = '/dataset/video_cls/UCF101/UCF-101_fast_yuv_compress_' + str(QP)
-out_path = '/dataset/video_cls/UCF101/UCF-101_fast_yuv_compress_' + str(QP) +'_img'
+yuv_path = 'UCF-101_yuv_compress_' + str(QP)
+out_path = 'UCF-101_yuv_compress_' + str(QP) +'_img'
 
 w, h = 320, 240
 
 video_list = os.listdir(yuv_path)
-video_ = get_data('/dataset/video_cls/UCF101/UCF101-json/ucf101_01.json')
+video_ = get_data('UCF101-json/ucf101_01.json')
 # video_ = ['v_Biking_g23_c01']
 for item in video_list:
     sub_list = os.listdir(os.path.join(yuv_path, item))
@@ -26,11 +27,12 @@ for item in video_list:
                 size_line = []
                 bppsum = 0
                 for l in lines:
-                    if ", size " in l:
-                        size = l.split(',')[1]
-                        size_line.append(int(size[5:]))
-                        bppsum += int(size[5:])
-
+                    if "block of size " in l:
+                        matchobj = re.search(r'Writing block of size (\d+)', l)
+                        if matchobj:
+                            size_line.append(int(matchobj.group(1)))
+                            bppsum += int(matchobj.group(1))
+                            
                 size_line = np.array(size_line) * 8.0 / (w * h)
                 with open(os.path.join(video_object_path, seq_name, 'bpp.txt'), 'w', encoding='utf-8') as f:
                     for items in size_line:

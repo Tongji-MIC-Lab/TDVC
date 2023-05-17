@@ -227,7 +227,7 @@ def main():
 
     train_data = Dataset_UCF(opt.clip, Path(''.join([opt.dataset_path, 'UCF-101_yuv_compress_' + str(opt.qp) + '_img'])),
                              'training', presets.VideoClassificationPresetTrain())
-    val_data = Dataset_UCF(opt.clip, Path(''.join([opt.dataset_path, 'UCF-101_fast_yuv_compress_' + str(opt.qp) + '_img'])),
+    val_data = Dataset_UCF(opt.clip, Path(''.join([opt.dataset_path, 'UCF-101_yuv_compress_' + str(opt.qp) + '_img'])),
                            'validation', presets.VideoClassificationPresetEval())
 
     data_loader = DataLoader(train_data, batch_size=opt.batch_size, shuffle=True, num_workers=opt.workers)
